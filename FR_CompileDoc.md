@@ -9,6 +9,11 @@
     - [环境配置](#环境配置)
     - [编译](#编译)
     - [执行程序](#执行程序)
+  - [Linux环境下](#linux环境下)
+    - [环境列表（在linux下一切默认是最新的版本）](#环境列表在linux下一切默认是最新的版本)
+    - [环境搭建](#环境搭建)
+    - [编译](#编译-1)
+    - [执行程序](#执行程序-1)
 
 ### Windows 环境下
 
@@ -77,4 +82,46 @@ cmake --build . --config Release --target install
 ```powershell
 cd .\install\bin\
 .\FaceRecognizerApp.exe
+```
+
+### Linux环境下
+
+#### 环境列表（在linux下一切默认是最新的版本）
+
+- gcc
+- g++
+- cmake
+- qt5
+  - qtcreator
+  - qt5-doc
+  - qt5-default
+  - qt5-dev-tools
+
+#### 环境搭建
+
+这也要教吗
+
+#### 编译
+
+```bash
+git clone --recursive https://github.com/KangLin/FaceRecognizer.git
+git clone https://github.com/KangLin/RabbitCommon.git
+cd ../FaceRecognizer
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=install ^
+       -DCMAKE_BUILD_TYPE=Release ^
+       -DRabbitCommon_DIR={你的RC目录，建议使用绝对目录}
+cmake --build . --config Release
+# 需要权限安装
+sudo cmake --build . --config Release --target install
+```
+
+#### 执行程序
+
+*执行程序可能不太准确*
+
+```powershell
+cd .\install\bin\
+.\FaceRecognizerApp
 ```

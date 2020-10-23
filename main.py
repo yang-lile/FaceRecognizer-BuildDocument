@@ -1,3 +1,5 @@
+# 用于编译代码时^不可识别的问题，生成一行命令行
+
 s = r'''cmake .. -DCMAKE_INSTALL_PREFIX=install ^
         -DCMAKE_BUILD_TYPE=Release ^
         -G "Visual Studio 14 2015 Win64" ^
